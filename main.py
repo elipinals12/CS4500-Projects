@@ -5,8 +5,15 @@ from Other.utils import Utils
 if __name__ == "__main__":
     dm = DirectoryModel()
     while True:
-            user_inputs = input().strip()
-            commands = Utils.extract_json_objects(user_inputs)
+            user_inputs = ""
+            commands = []
+            while len(commands) < 1:
+                stuff = input().strip()
+                user_inputs = user_inputs + stuff 
+                try:
+                    commands.extend(Utils.extract_json_objects(user_inputs))
+                except:
+                    continue
             for command in commands:
                 if not command:
                     continue
