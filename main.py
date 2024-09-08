@@ -19,7 +19,7 @@ if __name__ == "__main__":
                 commands.extend(Utils.extract_json_objects(user_inputs))
             except Exception as e:
                 # Print out the error for debugging
-                print(f"Error extracting JSON: {e}")
+                # print(f"Error extracting JSON: {e}")
                 continue
 
         # Process each command
