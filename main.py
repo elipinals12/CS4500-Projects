@@ -25,8 +25,7 @@ if __name__ == "__main__":
         # Process each command
         for command in commands:
             if not command:
-                continue
-            
+                continue        
             try:
                 if command == "query":
                     print(dm.get_tree())
@@ -44,5 +43,5 @@ if __name__ == "__main__":
             
             # Catch any exceptions raised during processing
             except Exception as e:
-                # print(f"Error processing command: {e}")
+                print(f"Error processing command: {e}")
                 continue

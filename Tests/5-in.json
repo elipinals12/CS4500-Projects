@@ -1,0 +1,7 @@
+{"path": "/", "subs": ["a"]}
+{"path": "/a", "subs": ["b"]}
+{"path": "/a/b", "subs": ["c"]}
+"query"
+{"path": "/a", "subs": ["b"]}
+"query"
+"quit"

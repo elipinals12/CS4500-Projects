@@ -23,8 +23,8 @@ for i in $(seq 0 $max_index); do
             diff "$temp_output_file" "$expected_output_file"
         fi
 
-        # Optionally, remove the temporary output file
-        rm "$temp_output_file"
+        # # Optionally, remove the temporary output file
+        # rm "$temp_output_file"
     else
         echo "Test $i Skipped: $input_file or $expected_output_file not found"
     fi
