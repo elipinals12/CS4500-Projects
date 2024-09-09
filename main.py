@@ -51,10 +51,5 @@ if __name__ == "__main__":
             
             # Catch any exceptions raised during command processing
             except Exception as e:
-<<<<<<< HEAD
                 print(f"Error processing command: {e}")
-=======
-                # Print out the error for debugging (commented out)
-                # print(f"Error processing command: {e}")
->>>>>>> 37374b269942a68fcefc04e5f502b58bfd933fc7
                 continue

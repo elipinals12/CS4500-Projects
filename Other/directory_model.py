@@ -7,7 +7,6 @@ class DirectoryModel(object):
         self.directory_tree = {}
 
     def add_to_tree(self, path, entry):
-<<<<<<< HEAD
         parts = path.strip('/').split('/')
         current = self.directory_tree
         
@@ -21,33 +20,14 @@ class DirectoryModel(object):
         if isinstance(entry, dict) and "subs" in entry:
             ordered_subs = sorted(entry["subs"])  # Sort sub-directories
             last_directory = parts[-1]
-            current = current if last_directory == "" else current[last_directory]
-            legal = 0 != math.prod([sub not in current.keys() for sub in ordered_subs])
+            current = current if last_directory == "" else current[last_directory] # Move to the correct level
+            legal = 0 != math.prod([sub not in current.keys() for sub in ordered_subs]) # Ensure all sub-directories are new
             if legal:
                 for sub in ordered_subs:
                     if sub.isalpha():  # Validate sub-directory names
-                        current[sub] = {}
+                        current[sub] = {} # Add the sub-directory
         elif isinstance(entry, int):  # Handle files with size
             current[parts[-1]] = entry  # Add the file with size in the correct directory
-=======
-        # Split the path into parts and remove leading/trailing slashes
-        parts = path.strip('/').split('/')
-        current = self.directory_tree
-        
-        # Traverse to the target directory
-        for part in parts[:-1]:
-            if part not in current or not isinstance(current[part], dict):
-                return  # Ignore invalid paths
-            current = current[part]
-        
-        # Add sub-directory or file to the directory tree
-        if isinstance(entry, dict):  # If entry is a sub-directory structure
-            for sub in entry['subs']:
-                if sub.isalpha():  # Ensure sub-directory names are alphabetic
-                    current[sub] = {}
-        elif isinstance(entry, int):  # If entry is a file with size
-            current[parts[-1]] = entry
->>>>>>> 37374b269942a68fcefc04e5f502b58bfd933fc7
 
     def get_tree(self):
         # Return the directory tree as a JSON string
